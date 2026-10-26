@@ -1,0 +1,35 @@
+{
+  "name": "dorak-booking-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "منصة دورك لحجز المواعيد وإدارة العربون",
+  "workspaces": [
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n API,WEB -c blue,green \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "node server/index.js",
+    "dev:web": "npm --workspace client run dev",
+    "build": "npm --workspace client run build",
+    "start": "node server/index.js",
+    "test": "node --test \"server/test/*.test.js\""
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "fflate": "^0.8.3",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "vite": "^6.0.7"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}
